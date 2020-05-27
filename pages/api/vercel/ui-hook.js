@@ -7,7 +7,7 @@ export default withUiHook(({ payload }) => {
   return htm`
 		<Page>
 		<P>Counter: ${count}</P>
-			<Button>Count Me</Button>
+			<Button>Count Me hi</Button>
 		</Page>
 	`;
 });
