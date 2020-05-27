@@ -11,6 +11,7 @@
     "@sentry/browser": "^5.15.5",
     "@sentry/node": "^5.15.5",
     "@sentry/webpack-plugin": "^1.11.1",
+    "@zeit/integration-utils": "^0.6.4",
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "next": "latest",
     "react": "^16.8.6",

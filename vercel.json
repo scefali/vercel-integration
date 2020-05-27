@@ -1,0 +1,5 @@
+  
+{
+  "version": 2,
+  "builds": [{ "src": "pages/pages/vercel/ui-hook.js", "use": "@now/node" }]
+}
