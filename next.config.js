@@ -16,6 +16,8 @@ const {
 
 process.env.SENTRY_DSN = SENTRY_DSN;
 
+console.log("env", process.env)
+
 module.exports = withSourceMaps({
   generateBuildId: () => nextBuildId({ dir: __dirname }),
   webpack: (config, options) => {
