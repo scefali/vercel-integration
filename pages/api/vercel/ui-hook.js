@@ -14,12 +14,20 @@ const cors = initMiddleware(
 let count = 0;
 
 const handler = async (req, res) => {
-	console.log('ehre')
   // Run cors
   await cors(req, res);
-	console.log('post')
+	console.log("ui hook body", JSON.stringify(req.body));
+	
+	count += 1;
+  const text = htm`
+		<Page>
+		<P>Counter: ${count}</P>
+			<Button>Count Me hi</Button>
+		</Page>
+	`;
 
-  return wrapped(req, res);
+
+  return await wrapped(req, res);
 };
 
 const wrapped = withUiHook(({ payload }) => {
