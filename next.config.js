@@ -16,11 +16,10 @@ const {
 
 process.env.SENTRY_DSN = SENTRY_DSN;
 
-
 module.exports = withSourceMaps({
   generateBuildId: () => {
-    const hash = process.env.VERCEL_GITLAB_COMMIT_SHA
-    console.log("hash", hash)
+    console.log("env hash", process.env);
+    const hash = process.env.VERCEL_GITLAB_COMMIT_SHA;
     return hash;
   },
   webpack: (config, options) => {
