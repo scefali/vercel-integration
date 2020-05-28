@@ -17,11 +17,6 @@ const {
 process.env.SENTRY_DSN = SENTRY_DSN;
 
 module.exports = withSourceMaps({
-  generateBuildId: () => {
-    console.log("env hash", process.env);
-    const hash = process.env.VERCEL_GITHUB_COMMIT_SHA;
-    return hash;
-  },
   webpack: (config, options) => {
     // In `pages/_app.js`, Sentry is imported from @sentry/node. While
     // @sentry/browser will run in a Node.js environment, @sentry/node will use
@@ -58,7 +53,7 @@ module.exports = withSourceMaps({
           include: ".next",
           ignore: ["node_modules"],
           urlPrefix: "~/_next",
-          release: options.buildId,
+          release: process.env.VERCEL_GITHUB_COMMIT_SHA,
         })
       );
     }
