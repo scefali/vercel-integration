@@ -18,7 +18,18 @@ const createWebhook = async (access_token) => {
   console.log('paylod', payload)
   const { data } = await client.post(url, payload, { headers });
   console.log("createWebhook", data);
+  return data
 };
+
+const getSecret = async accessToken => {
+  const url = "/v3/now/secrets";
+  const headers = {
+    Authorization: `Bearer ${accessToken}`,
+  };
+  const { data } = await client.get(url, { headers });
+  console.log("getSecret", data);
+  return data;
+}
 
 const fn = async (req, res) => {
   const url = "/v2/oauth/access_token";
@@ -37,7 +48,8 @@ const fn = async (req, res) => {
   });
   console.log("auth data", data);
   const { access_token } = data;
-  await createWebhook(access_token);
+  // await createWebhook(access_token);
+  await getSecret(access_token);
   return res.send(data);
 };
 
